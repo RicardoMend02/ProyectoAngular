@@ -1,0 +1,42 @@
+
+
+<div class="container mt-5 registro">
+
+    <h1 class="text-center text-light">{{ titulo_formulario | uppercase }}</h1>
+
+    <form [formGroup]="usuarioForm" (ngSubmit)="guardarUsuario()" class="row g-3 mt-5">
+        <div class="col-6">
+            <label for="correoContacto" class="form-label text-light">Correo</label>
+            <input type="email" class="form-control" formControlName="correo">
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('correo')?.hasError('pattern')">Correo invalido</span>
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('correo')?.hasError('required') && usuarioForm.get('correo')?.touched">Correo obligatorio</span>
+        </div>
+        <div class="col-6">
+            <label for="nombreContacto" class="form-label text-light">Nombre</label>
+            <input type="text" class="form-control" formControlName="nombre">
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('nombre')?.hasError('required') && usuarioForm.get('nombre')?.touched">Nombre invalido</span>
+        </div>
+        <div class="col-4">
+            <label for="direccionContacto" class="form-label text-light">Direccion</label>
+            <input type="text" class="form-control" formControlName="direccion">
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('direccion')?.hasError('required') && usuarioForm.get('direccion')?.touched">Dirección invalida</span>
+
+        </div>
+        <div class="col-4">
+            <label for="edadContacto" class="form-label text-light">Edad</label>
+            <input type="text" class="form-control" formControlName="edad">
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('edad')?.hasError('pattern')">Edad invalida</span>
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('edad')?.hasError('required') && usuarioForm.get('edad')?.touched">Edad obligatoria</span>
+
+        </div>
+        <div class="col-4">
+            <label for="CiudadContacto" class="form-label text-light">Ciudad</label>
+            <input type="text" class="form-control" formControlName="ciudad">
+            <span class="text-danger fw-bold" *ngIf="usuarioForm.get('ciudad')?.hasError('required') && usuarioForm.get('ciudad')?.touched">Ciudad obligatoria</span>
+
+        </div>
+        <div class="col-12">
+            <button type="submit" [disabled]="usuarioForm.invalid" class="boton btn btn-dark">Enviar</button>
+        </div>
+    </form>
+</div>

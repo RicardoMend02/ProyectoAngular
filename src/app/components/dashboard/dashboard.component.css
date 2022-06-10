@@ -1,0 +1,17 @@
+.fas {
+    margin: 0 10px;
+    cursor: pointer;
+    transition: .3s all;
+}
+
+.fa-pen:hover {
+    color: var(--color-editar);
+}
+
+.fa-trash:hover {
+    color: var(--color-eliminar);
+}
+
+.borde{
+    border-radius: 10px;
+}
